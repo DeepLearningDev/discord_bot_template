@@ -1,12 +1,12 @@
 import os
 import crescent, hikari
 
-bot = hikari.GatewayBot(os.environ["TOKEN"], intents=hikari.Intents.All)
+bot = hikari.GatewayBot(os.environ["TOKEN"], intents=hikari.Intents.ALL)
 client = crescent.Client(bot)
-
+client.plugins.load_folder("botname.plugins")
 
 @client.include
-@client.command(description="Ping Value")
+@crescent.command(description="Ping Value")
 async def ping(ctx:crescent.Context) -> None:
   await ctx.respond("Pong")
 
