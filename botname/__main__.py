@@ -13,10 +13,10 @@ async def ping(ctx:crescent.Context) -> None:
 
 if __name__ == "__main__":
   if os.name != "nt":
-    import _asyncio
+    import asynchio
     
-    import uvloop
+    import winloop
     
-    asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
+    asyncio.set_event_loop_policy(winloop.EventLoopPolicy())
     
   bot.run()

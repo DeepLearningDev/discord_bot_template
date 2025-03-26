@@ -1,4 +1,5 @@
 # any imports exclusive to the command up here
+import os
 
 import crescent
 import crescent.plugin
@@ -15,11 +16,12 @@ class Hello:
     min_value=1,
     max_value=10,
    )
-  bonus = crescent.option(
+  option2 = crescent.option(
     int,
-    description="This is a second non-default option"
+    default=0,
+    description="This is a second non-default option",
     )
   
   async def callback(self, ctx: crescent.Context) -> None:
-    output = [self.option1 + self.bonus]
-    await ctx.respond(f"{self.option1} + {self.bonus} = {output}")
+    output = self.option1 + self.option2
+    await ctx.respond(f"{self.option1} + {self.option2} = {output}")
